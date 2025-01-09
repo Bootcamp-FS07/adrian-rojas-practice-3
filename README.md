@@ -1,3 +1,5 @@
+# Tic Tac Toe
+[Play the game](https://bootcamp-fs07.github.io/adrian-rojas-practice-3/)
 # About the Classes
 - Game manages the state of the game, switching palyer turns, and handling DOM events
 - Board made up of individual Space objects and renders the game board in the DOM
