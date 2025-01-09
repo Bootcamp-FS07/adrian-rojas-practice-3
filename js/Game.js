@@ -91,15 +91,12 @@ class Game {
     }
 
     /**
-     * If 9 turns pass and a winner isn't found, there is a draw
+     * If spaces length turns pass and a winner isn't found, there is a draw
      * @return {boolean} - draw will be true or false
      */
     checkForDraw(){
-        let draw = false;
-        if (!this.win && this.turns == 9) {
-            draw = true;
-        }
-        return draw;
+        const size = this.board.rows;
+        return !this.win && this.turns == (size*size);
     }
 
     /**
@@ -114,7 +111,7 @@ class Game {
         //horizontal
         if (spaces.some(row => row.every(space => owner === space.token?.owner?.name))) return true;
         //TODO: vertical todavia bicheado
-        if (spaces.some((row, yindex) => row.every((space, xindex) => owner === spaces[yindex][xindex]?.token?.owner?.name))) return true;
+        if (spaces.some((row, yindex) => row.every((space, xindex) => owner === spaces[xindex][yindex]?.token?.owner?.name))) return true;
             //diagonal (top left - bottom right)
         if (spaces.every((row, index ) => owner === spaces[index][index]?.token?.owner?.name)) return true;
         //diagonal (top right - bottom left)
