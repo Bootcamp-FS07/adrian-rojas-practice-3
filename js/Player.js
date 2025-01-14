@@ -8,7 +8,7 @@ class Player {
         this.id = id;
         this.color = color;
         this.active = active;
-        this.tokens = this.createTokens(5); //method that creates tokens that belong to the player
+        this.tokens = this.createTokens(50); //method that creates tokens that belong to the player
     }
 
     /**
@@ -29,7 +29,6 @@ class Player {
     }
 
     /**
-     * Each Player will get 5 tokens
      * @param {integer} numOfTokens - number of tokens to create
      * @return {array} tokens - array of token objects
      */

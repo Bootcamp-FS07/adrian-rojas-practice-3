@@ -67,7 +67,6 @@ class Game {
 
     /**
      * Print the results of the game in the DOM
-     * @param {string} message - winner of game or a draw
      */
     gameOver(message, result){
         const finish = document.getElementById('finish');
@@ -91,7 +90,7 @@ class Game {
     }
 
     /**
-     * If spaces length turns pass and a winner isn't found, there is a draw
+     * If as many spaces as turns pass and a winner isn't found, there is a draw
      * @return {boolean} - draw will be true or false
      */
     checkForDraw(){
