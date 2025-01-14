@@ -108,14 +108,13 @@ class Game {
         const spaces = this.board.spaces;
         const size = this.board.rows;
         //horizontal
-        if (spaces.some(row => row.every(space => owner === space.token?.owner?.name))) return true;
-        //TODO: vertical todavia bicheado
-        if (spaces.some((row, yindex) => row.every((space, xindex) => owner === spaces[xindex][yindex]?.token?.owner?.name))) return true;
-            //diagonal (top left - bottom right)
-        if (spaces.every((row, index ) => owner === spaces[index][index]?.token?.owner?.name)) return true;
+        return (spaces[target.x].every(space => owner === space.token?.owner?.name)) ||
+        //vertical
+        (spaces.every(space => owner === space[target.y]?.token?.owner?.name)) ||
+        //diagonal (top left - bottom right)
+        (spaces.every((_, index ) => owner === spaces[index][index]?.token?.owner?.name)) ||
         //diagonal (top right - bottom left)
-        if (spaces.every((row, index ) => owner === spaces[index][size-index-1]?.token?.owner?.name)) return true;
-        return false;
+        (spaces.every((_, index ) => owner === spaces[index][size-index-1]?.token?.owner?.name));
     }
 
     /**
